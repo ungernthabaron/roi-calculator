@@ -15,7 +15,7 @@ A Streamlit-based web application for calculating Return on Investment (ROI) for
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/roi-calculator.git
+git clone https://github.com/ungernthabaron/roi-calculator.git
 cd roi-calculator
 ```
 
