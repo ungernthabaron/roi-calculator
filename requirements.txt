@@ -1,5 +1,7 @@
-streamlit==1.32.0
-plotly==5.18.0
-SQLAlchemy==2.0.27
-python-dotenv==1.0.1
-sqlite3==3.45.1 
+streamlit
+pandas
+numpy
+markdown-it-py==3.0.0
+mdurl==0.1.2
+pygments==2.19.1
+rich==13.9.4
