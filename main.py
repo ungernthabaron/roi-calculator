@@ -37,14 +37,14 @@ def login_page():
                 if user:
                     st.session_state.user = user
                     st.session_state.page = 'customer_dashboard'
-                    st.experimental_rerun()
+                    st.rerun()
                 else:
                     st.error("Invalid credentials")
         
         with col2:
             if st.button("Create Account"):
                 st.session_state.page = 'register'
-                st.experimental_rerun()
+                st.rerun()
     else:
         password = st.text_input("Password", type="password")
         if st.button("Login"):
@@ -54,7 +54,7 @@ def login_page():
                     st.session_state.page = 'project_manager_dashboard'
                 elif role == "IT Director":
                     st.session_state.page = 'it_director_dashboard'
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.error("Invalid password")
 
@@ -70,7 +70,7 @@ def register_page():
             if db.create_user(username, password, "customer"):
                 st.success("Account created successfully! Please login.")
                 st.session_state.page = 'login'
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.error("Username already exists")
         else:
@@ -357,7 +357,7 @@ def pm_dashboard():
             db.save_project_inputs(project_id, inputs)
             db.update_project_status(project_id, 'estimated_by_pm')
             st.success("Project inputs updated successfully!")
-            st.experimental_rerun()
+            st.rerun()
     
     # Display current project status
     st.subheader("Current Project Status")
@@ -493,14 +493,14 @@ def it_director_dashboard():
                 inputs['it_comments'] = comment
                 db.save_project_inputs(project_id, inputs)
                 st.success("Comment added successfully!")
-                st.experimental_rerun()
+                st.rerun()
     
     # Approve button
     if project_data[4] != 'approved_by_it':
         if st.button("Approve Project", type="primary"):
             db.update_project_status(project_id, 'approved_by_it')
             st.success("Project approved successfully!")
-            st.experimental_rerun()
+            st.rerun()
 
 def calculate_roi(project_id):
     try:
@@ -1048,7 +1048,7 @@ def existing_projects():
             
             db.save_project_inputs(project_id, inputs)
             st.success("Project inputs saved successfully!")
-            st.experimental_rerun()
+            st.rerun()
 
 def enhancements():
     st.title("Enhancements")
@@ -1157,7 +1157,7 @@ def enhancements():
             
             db.save_project_inputs(project_id, inputs)
             st.success("Enhancement inputs saved successfully!")
-            st.experimental_rerun()
+            st.rerun()
 
 def main():
     # Light Theme
@@ -1592,27 +1592,27 @@ def main():
             if st.button("Logout"):
                 st.session_state.clear()
                 st.session_state.page = 'login'
-                st.experimental_rerun()
+                st.rerun()
             
             # Add ROI Calculator tab for all roles
             if st.button("ROI Calculator"):
                 st.session_state.page = 'roi_calculator'
-                st.experimental_rerun()
+                st.rerun()
             
             # Role-specific navigation
             user_role = st.session_state.user[2] if isinstance(st.session_state.user, tuple) else st.session_state.user.get('role', '')
             if user_role == 'customer':
                 if st.button("My Projects"):
                     st.session_state.page = 'customer_dashboard'
-                    st.experimental_rerun()
+                    st.rerun()
             elif user_role == 'project manager':
                 if st.button("Project Management"):
                     st.session_state.page = 'project_manager_dashboard'
-                    st.experimental_rerun()
+                    st.rerun()
             elif user_role == 'it director':
                 if st.button("IT Director Dashboard"):
                     st.session_state.page = 'it_director_dashboard'
-                    st.experimental_rerun()
+                    st.rerun()
 
 if __name__ == "__main__":
     main() 
