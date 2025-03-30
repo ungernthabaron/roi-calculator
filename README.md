@@ -1,3 +1,5 @@
+# Instruction how to use: https://github.com/ungernthabaron/roi-calculator/wiki/How-to-use
+
 # ROI Calculator
 
 A Streamlit-based web application for calculating Return on Investment (ROI) for IT projects. The application allows customers to submit project proposals, project managers to estimate costs, and IT directors to approve projects based on ROI calculations.
