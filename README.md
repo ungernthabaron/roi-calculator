@@ -1,3 +1,5 @@
+![ROI Calculator](https://github.com/ungernthabaron/roi-calculator/blob/main/ChatGPT%20Image%20Mar%2031%2C%202025%2C%2010_45_41%20AM.png)
+
 # Instruction how to use: https://github.com/ungernthabaron/roi-calculator/wiki/How-to-use
 
 # ROI Calculator
